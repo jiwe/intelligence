@@ -36,7 +36,11 @@ walker_step :: proc(using walker: ^Walker) {
 		weight = 3
 	}
 
-	step: f32 = 1.0
+	std := 1.0
+	mean := 2.0
+	step := f32(rand.norm_float64() * std + mean)
+	fmt.printfln("step:", step)
+
 	choice := rand.int_max(max_val)
 	choice = weight if choice > 3 else choice
 	switch choice {
